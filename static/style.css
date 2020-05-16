@@ -23,12 +23,17 @@ body {
 }
 
 label {
-    font-size: 25px;
+    font-size: 22px;
+    color: #4c4c4c;
+}
+
+.btnDiv{
+    text-align: center;
 }
 
 button {
     height: 50px;
-    width: 150px;
+    width: 35%;
     background-color: #001aff;
     color: white;
     font-weight: 600;
@@ -47,6 +52,6 @@ input {
     height: 35px;
     width: 100%;
     font-size: 20px;
-    padding: 6px;
+    padding: 5px 10px;
     border: 1px solid #cad0ff;
 }
