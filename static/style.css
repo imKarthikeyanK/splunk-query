@@ -1,0 +1,18 @@
+body {
+    background-color: rgb(0, 26, 255);
+}
+
+.main {
+    margin: auto;
+    background-color: aliceblue;
+    min-height: 45rem;
+    width: 50%;
+    margin-top: 5%;
+    border-radius: 10px;
+    box-shadow: -2px 6px 50px #313131;
+}
+
+.main .heading {
+    text-align: center;
+    padding: 10px;
+}
