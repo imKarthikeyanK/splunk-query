@@ -16,17 +16,17 @@
         <div class="formDiv">
             <form action="/splunk" method="POST">
                 <label for="ip">IP Address</label><br>
-                <input type="number" id="ip" name="ip" required placeholder="" /><br><br>
+                <input type="text" id="ip" name="ip" required placeholder="Splunk IP address" autofocus minlength="7" maxlength="15" size="15" pattern="^((\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.){3}(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$" /><br><br>
                 <label for="username">Username</label><br>
-                <input type="text" id="username" name="username" required /><br><br>
+                <input type="text" id="username" name="username" required placeholder="Splunk Username" /><br><br>
                 <label for="password" id="password">Password</label><br>
-                <input type="password" id="password" name="password" required /><br><br>
+                <input type="password" id="password" name="password" required placeholder="Splunk Password" /><br><br>
                 <label for="query" id="query">Query</label><br>
-                <input type="text" id="query" name="query" required /><br><br>
+                <input type="text" id="query" name="query" required placeholder="Search Query"/><br><br>
                 <label for="range" id="range">Time Range</label><br>
-                <input type="text" id="range" name="query" /><br><br>
+                <input type="text" id="range" name="range" placeholder="data query range"/><br><br>
                 <label for="email" id="email">Email</label><br>
-                <input type="email" id="email" name="email" /><br><br>
+                <input type="email" id="email" name="email" placeholder="Email address"/><br><br>
                 <div class="btnDiv">
                     <button type="submit">Submit</button>
                 </div>

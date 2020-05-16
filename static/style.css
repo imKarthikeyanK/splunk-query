@@ -6,8 +6,8 @@ body {
     margin: auto;
     background-color: aliceblue;
     min-height: 45rem;
-    width: 50%;
-    margin-top: 5%;
+    width: 45%;
+    margin-top: 3%;
     border-radius: 10px;
     box-shadow: -2px 6px 50px #313131;
     padding: 20px;
@@ -27,8 +27,9 @@ label {
     color: #4c4c4c;
 }
 
-.btnDiv{
+.btnDiv {
     text-align: center;
+    padding: 15px;
 }
 
 button {
@@ -48,10 +49,32 @@ button:hover {
     cursor: pointer;
 }
 
+button:focus {
+    background-color: #0315b8;
+}
+
 input {
     height: 35px;
     width: 100%;
     font-size: 20px;
     padding: 5px 10px;
     border: 1px solid #cad0ff;
+}
+
+@media only Screen and (max-width: 1024px){
+    .main{
+        width: 70%
+    }
+    .formDiv{
+        width: 80%;
+    }
+}
+
+@media only Screen and (max-width: 414px){
+    .main{
+        width: 80%;
+    }
+    .formDiv{
+        width: 90%;
+    }
 }
