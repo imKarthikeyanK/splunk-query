@@ -1,4 +1,4 @@
-html{
+html {
     font-size: 62.5%;
 }
 
@@ -19,6 +19,10 @@ body {
 
 .main .heading {
     text-align: center;
+}
+
+h1 {
+    font-size: 2.7rem;
 }
 
 .formDiv {
@@ -65,26 +69,26 @@ input {
     border: 1px solid #cad0ff;
 }
 
-@media only Screen and (max-width: 1024px){
-    html{
+@media only Screen and (max-width: 1024px) {
+    html {
         font-size: 55%;
     }
-    .main{
+    .main {
         width: 70%
     }
-    .formDiv{
+    .formDiv {
         width: 80%;
     }
 }
 
-@media only Screen and (max-width: 768px){
-    html{
+@media only Screen and (max-width: 768px) {
+    html {
         font-size: 55%;
     }
-    .main{
+    .main {
         width: 80%;
     }
-    .formDiv{
+    .formDiv {
         width: 90%;
     }
 }
