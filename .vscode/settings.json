@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "e:\\Projects\\assesment\\splunk-pro\\venv\\Scripts\\python.exe"
+    "python.pythonPath": "e:\\Projects\\assesment\\splunk-pro\\venv\\Scripts\\python.exe",
+    "python.formatting.provider": "autopep8"
 }
