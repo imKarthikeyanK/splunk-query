@@ -24,7 +24,13 @@
                 <label for="query" id="query">Query</label><br>
                 <input type="text" id="query" name="query" required placeholder="Search Query"/><br><br>
                 <label for="range" id="range">Time Range</label><br>
-                <input type="text" id="range" name="range" placeholder="data query range"/><br><br>
+                <!-- <input type="text" id="range" name="range" placeholder="data query range"/><br><br> -->
+                <select id="range" name="range">
+                    <option value="">select range</option>
+                    <option value="24h">last 24 hours</option>
+                    <option value="7d">last 7 days</option>
+                    <option value="30d">last 30 days</option>
+                </select><br>
                 <label for="email" id="email">Email</label><br>
                 <input type="email" id="email" name="email" placeholder="Email address"/><br><br>
                 <div class="btnDiv">
