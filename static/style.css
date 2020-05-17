@@ -35,6 +35,15 @@ label {
     color: #4c4c4c;
 }
 
+label span{
+    color: red;
+}
+
+#email span {
+    color: #797979;
+    font-size: 18px;
+}
+
 .btnDiv {
     text-align: center;
     padding: 15px;
@@ -70,10 +79,10 @@ input {
 }
 
 select {
-    height: 40px;
+    height: 48px;
     width: 300px;
     display: block;
-    font-size: 17px;
+    font-size: 20px;
     padding-left: 5px;
     border: 1px solid #cad0ff;
 }
