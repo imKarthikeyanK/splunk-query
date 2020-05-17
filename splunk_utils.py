@@ -1,36 +1,61 @@
-import urllib
-from splunklib.six import moves
-from xml.etree import ElementTree
+import splunklib.client as Client
+import splunklib.results as results
+import json
+import collections
 
-# HOST = ""
-# PORT = ""
-# USERNAME = ""
-# PASSWORD = ""
+"""
+method to retrieve data from splunk server
+args: 
+host => host ip address
+port => server running port
+username => username to login to splunk
+password => password to login to splunk
+time_range => the time range to retrieve data
+returns => list
+"""
+def query_splunk(host, port, username, password, query, time_range):
+    print(host, port, username, password, query, time_range)
 
-def query_splunk(host, port, username, password, query, range):
-    connection = moves.http_client.HTTPSConnection(host, port)
-    body = urllib.urlencode({
-        'username': username, 
-        'password': password
-        })
-    headers = {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Content-Length': str(len(body)),
-        'Host': host,
-        'Accept': "*/*"
+    # connecting to splunk server
+    service = Client.connect(
+        host=host,
+        port=port,
+        username=username,
+        password=password
+    )
+
+    # calculates earliest time based on time_range
+    if time_range == "24h":
+        earliest_time = "-24h"
+    elif time_range == "7d":
+        earliest_time = "-7d"
+    elif time_range == "30d":
+        earliest_time = "-30d"
+
+    # keyword args to be passed to service
+    kwargs_export = {
+       "earliest_time": earliest_time,
+       "latest_time": "now",
+       "search_mode": "normal",
+       "preview": False
     }
 
-    try:
-        connection.request("POST", "/services/auth/login", body, headers)
-        response = connection.getresponse()
-    finally:
-        connection.close()
-
-    if response.status != 200:
-        raise Exception("%d (%s)" % (response.status, response.reason))
-
-    body = response.read()
-
-    print(body)
-    session_key = ElementTree.XML(body).findout("./sessionKey")
-    print(session_key)
+    # search string added with 'search ' as suggested by docs
+    searchString = "search " + query
+    
+    # query method. queries data and parsed by ResultsReader
+    rr = results.ResultsReader(service.jobs.export(searchString, **kwargs_export))
+    
+    # list to hold the final result
+    result_data = []
+    
+    # method to seperate data and convert to json and store in list
+    for result in rr:
+        if isinstance(result, results.Message):
+            print('%s: %s' % (result.type, result.message))
+        elif isinstance(result, dict):
+            str_result = json.dumps(result)  # converts to string
+            json_result = json.loads(str_result)  # converts to json
+            result_data.append(json_result)  # appends to final list
+    
+    return result_data
