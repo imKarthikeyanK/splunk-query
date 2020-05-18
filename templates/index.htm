@@ -42,23 +42,30 @@
     </div>
     {% endif %}
 
-    {% if status == "success" %}
-    <div class="main success">
+    {% if status != "index" %}
+    <div class="main success {{ 'failed' if status !='success' }}">
+        {% if status == "success" %}
         <img src="/static/svg/check.svg" height="70" width="70" style="color: green;">
-        <h1>Query Successfull</h1>
-        <h2>Result file has been sent to given Mail Address</h2>
-        <h3>Please click button to Create new Query</h3><br><br>
-        <a href="/"><button>New Query</button></a>
-    </div>
-    {% endif %}
-
-    {% if status == "failed" %}
-    <div class="main success failed">
+        {% else %}
         <img src="/static/svg/close.svg" height="70" width="70" style="color: green;">
-        <h1>Query Unsuccessfull</h1>
+        {% endif %}
+        <h1>Query 
+            {% if status == "success" %} Successfull 
+            {% elif status == "failed" %} Unsuccessfull 
+            {% else %} Unsuccessfull - Error Occured 
+            {% endif %}
+        </h1>
+        {% if status == "success" %}
+        <h2>Result file has been sent to given Mail Address</h2>
+        {% elif status == "failed" %}
         <h2>Splunk couldn't process your Query</h2>
-        <h3>Please click button to Try new Query</h3><br><br>
-        <a href="/"><button>New Query</button></a>
+        {% else %}
+        <h2>Please make sure provided information is valid</h2>
+        {% endif %}
+        <h3>Please click button to Try {% if status == "error" %} Again {% else %} new Query {% endif %}</h3><br><br>
+        <a href="/">
+            <button>{% if status == "error" %} Try Again {% else %} New Query {% endif %}</button>
+        </a>
     </div>
     {% endif %}
 </body>
