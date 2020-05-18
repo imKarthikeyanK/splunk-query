@@ -63,7 +63,7 @@ def splunk_query():
         try:
             result = query_splunk(host, port, username, password, query, time_range)
         except TimeoutError:
-            print("TimeOutError")
+            return redirect(url_for('index', status="error"))
 
         print(result)
 
