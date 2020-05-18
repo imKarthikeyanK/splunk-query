@@ -50,7 +50,7 @@ button {
     background-color: #001aff;
     color: white;
     font-weight: 600;
-    font-size: 1.9rem;
+    font-size: 1.8rem;
     border: 0;
     box-shadow: 0px 0px 15px #484848;
     border-radius: 3px;
@@ -91,12 +91,12 @@ select {
 
 .success h1 {
     color: #1ca700;
-    font-size: 3rem;
+    font-size: 2.4rem;
 }
 
 .success h2{
     color: #001aff;
-    font-size: 2.5rem;
+    font-size: 2.2rem;
 }
 
 .success h3 {
@@ -105,7 +105,7 @@ select {
 
 .failed h1 {
     color: #ff0000;
-    font-size: 3rem;
+    font-size: 2.4rem;
 }
 
 
