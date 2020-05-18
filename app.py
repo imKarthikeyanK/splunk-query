@@ -65,8 +65,6 @@ def splunk_query():
         except Exception as e:
             return redirect(url_for('index', status="error"))
 
-        print(result)
-
         # mail is sent only if we have got any data from splunk 
         # else User will be informed in the UI 
         if result:
